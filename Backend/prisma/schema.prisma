@@ -1,0 +1,90 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Role {
+  @@map("roles")
+  id Int @id() @default(autoincrement())
+  name String @unique()
+  //relaion
+  users User[]
+}
+
+model Organization{
+  @@map("organizations")
+  id Int @id() @default(autoincrement())
+  name String @unique()
+  address String?
+  type OrganizationType @default(retail)
+  phone String @db.VarChar(15)
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+  //relation
+  users User[]
+  item_organizations ItemOrganization[]
+
+
+}
+model User{
+  @@map("users")
+  id Int @id @default(autoincrement())
+  role_id Int
+  organization_id Int
+  name String
+  email String @unique
+  mobile String @unique @db.VarChar(15)
+  password String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  role Role @relation(fields: [role_id], references:[id])
+  organization Organization @relation(fields: [organization_id], references:[id])
+
+}
+
+enum OrganizationType {
+  retail
+  wholesale
+}
+enum DiscountType{
+  rate
+  amount
+}
+
+
+model Item{
+  @@map("items")
+  id Int @id @default(autoincrement())
+  name String @unique
+  description String? @db.Text()
+  quantity Int @default(0)
+  price Float @default(0)
+  discount Float @default(0)
+  discount_type DiscountType @default(rate)
+  tax Float @default(0)
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+  item_organizations ItemOrganization[]
+}
+model ItemOrganization{
+  @@map("item_organizations")
+id Int @id() @default(autoincrement())
+  item_id Int
+  organization_id Int
+
+  
+  item Item @relation(fields: [item_id],references: [id], onDelete: Cascade)
+  organizations Organization @relation(fields: [organization_id], references: [id], onDelete:Cascade)
+}
+

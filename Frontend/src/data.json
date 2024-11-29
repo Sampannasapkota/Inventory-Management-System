@@ -1,0 +1,38 @@
+[
+    {
+        "id":1,
+        "name":"Pen",
+        "description":"This is a pen",
+        "quantity":"10",
+        "price":"100",
+        "discount":"20"
+    },
+    {
+        "id":2,
+        "name":"Pencil",
+        "description":"This is a pencil",
+        "quantity":"20",
+        "price":"200"
+    },
+    {
+        "id":3,
+        "name":"Mobile Phone",
+        "description":"",
+        "quantity":"10",
+        "price":"1000000"
+    },
+    {
+        "id":4,
+        "name":"Refrigerator",
+        "description":"",
+        "quantity":"1",
+        "price":"10000"
+    },
+    {
+        "id":5,
+        "name":"Books",
+        "description":"",
+        "quantity":"10",
+        "price":"1000"
+    }
+]
