@@ -4,7 +4,7 @@
     height: 60px;
     width: 100%;
     background-color: white;
-    justify-content: space-between;
+    justify-content: none;
     align-items: center;
     /* position: fixed; */
   }
@@ -18,17 +18,29 @@
   }
   
   input {
-    border: none;
+    border: 1px;
     padding: 8px 8px;
     width: 100%;
   }
   
-  .icon {
-    margin-right: 16px;
-  }
+  /* .icon {
+    margin-right: 10px;
+    padding-left: 60px;
+  } */
   
-  .icon, .search {
+  /* .icon, .search {
     color: black;
     height: 16px;
     width: 16px;
+  } */
+  .icon-profile{
+    height: 16px;
+    width: 16px;
+    padding-right: 10px;
+  }
+  .icon-bell{
+    height: 16px;
+    width: 16px;
+    padding-left: 900px;
+    padding-right: 10px;
   }
