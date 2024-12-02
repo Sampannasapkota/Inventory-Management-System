@@ -1,46 +1,55 @@
 .header-container {
-    display: flex;
-    flex-direction: row;
-    height: 60px;
-    width: 100%;
-    background-color: white;
-    justify-content: none;
-    align-items: center;
-    /* position: fixed; */
-  }
+  display: flex;
+  justify-content: space-between; /* Space between search and navigation */
+  align-items: center;
+  height: 60px;
+  width: 95%;
+  background-color: white;
+  padding: 0 16px; /* Add padding for consistent spacing */
+  border-bottom: 1px solid #ddd; /* Subtle border for better separation */
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between search icon and input */
+  flex: 1; /* Allow search to take remaining space */
   
-  .search-container {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    margin-bottom: 16px;
-    padding: 8px 16px;
-  }
-  
-  input {
-    border: 1px;
-    padding: 8px 8px;
-    width: 100%;
-  }
-  
-  /* .icon {
-    margin-right: 10px;
-    padding-left: 60px;
-  } */
-  
-  /* .icon, .search {
-    color: black;
-    height: 16px;
-    width: 16px;
-  } */
-  .icon-profile{
-    height: 16px;
-    width: 16px;
-    padding-right: 10px;
-  }
-  .icon-bell{
-    height: 16px;
-    width: 16px;
-    padding-left: 900px;
-    padding-right: 10px;
-  }
+}
+
+.search-container input {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  width: 200px;
+  font-size: 14px;
+}
+
+.nav-all {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Space between navigation items */
+}
+
+.icon-profile,
+.icon-bell {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  color: #333; /* Neutral color for icons */
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff; /* Blue color for buttons */
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}

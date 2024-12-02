@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
+import "./login.css"; // Import the CSS file
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -11,76 +14,38 @@ const Login = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        backgroundColor: "#f9f9f9",
-      }}
-    >
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          backgroundColor: "#fff",
-          padding: "20px",
-          borderRadius: "10px",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-          width: "300px",
-          textAlign: "center",
+    <div className="login-container">
+      <button
+        className="back-button"
+        onClick={() => {
+          navigate("/products");
         }}
       >
-        <h2 style={{ marginBottom: "20px", color: "#333", fontFamily: "Arial" }}>
-          Login
-        </h2>
-        <div style={{ marginBottom: "15px" }}>
+        Back
+      </button>
+      <form onSubmit={handleSubmit} className="login-form">
+        <h2 className="form-title">Login</h2>
+        <div className="form-group">
           <input
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            style={{
-              width: "100%",
-              padding: "10px",
-              border: "1px solid #ddd",
-              borderRadius: "5px",
-              fontSize: "14px",
-              boxSizing: "border-box",
-            }}
+            className="form-input"
             required
           />
         </div>
-        <div style={{ marginBottom: "15px" }}>
+        <div className="form-group">
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            style={{
-              width: "100%",
-              padding: "10px",
-              border: "1px solid #ddd",
-              borderRadius: "5px",
-              fontSize: "14px",
-              boxSizing: "border-box",
-            }}
+            className="form-input"
             required
           />
         </div>
-        <button
-          type="submit"
-          style={{
-            width: "100%",
-            padding: "10px",
-            backgroundColor: "#4caf50",
-            color: "#fff",
-            border: "none",
-            borderRadius: "5px",
-            fontSize: "16px",
-            cursor: "pointer",
-          }}
-        >
+        <button type="submit" className="submit-button">
           Login
         </button>
       </form>

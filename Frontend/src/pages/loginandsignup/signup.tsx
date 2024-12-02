@@ -1,104 +1,78 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
+import "./signup.css"; // Import the CSS file
 
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phonenumber, setPhonenumber] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
-    console.log("Name:", name, "Email:", email, "Password:", password);
-    alert("Signup Successful!");
+    console.log( name,  email, phonenumber,  password);
+    Login();
   };
+  const Login=async()=>{
+
+  }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        backgroundColor: "#f4f4f4",
-      }}
-    >
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          backgroundColor: "#fff",
-          padding: "20px",
-          borderRadius: "10px",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-          width: "350px",
-          textAlign: "center",
+    <div className="signup-container">
+      <button
+        className="back-button"
+        onClick={() => {
+          navigate("/products");
         }}
       >
-        <h2 style={{ marginBottom: "20px", color: "#333", fontFamily: "Arial" }}>
-          Signup
-        </h2>
-        <div style={{ marginBottom: "15px" }}>
+        Back
+      </button>
+      <form onSubmit={handleSubmit} className="signup-form">
+        <h2 className="form-title">Signup</h2>
+        <div className="form-group">
           <input
             type="text"
             placeholder="Full Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            style={{
-              width: "100%",
-              padding: "10px",
-              border: "1px solid #ddd",
-              borderRadius: "5px",
-              fontSize: "14px",
-              boxSizing: "border-box",
-            }}
+            className="form-input"
             required
           />
         </div>
-        <div style={{ marginBottom: "15px" }}>
+        <div className="form-group">
           <input
             type="email"
             placeholder="Email Address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            style={{
-              width: "100%",
-              padding: "10px",
-              border: "1px solid #ddd",
-              borderRadius: "5px",
-              fontSize: "14px",
-              boxSizing: "border-box",
-            }}
+            className="form-input"
             required
           />
         </div>
-        <div style={{ marginBottom: "15px" }}>
+        <div className="form-group">
+          <input
+            type="phonenumber"
+            placeholder="Mobile Number"
+            value={phonenumber}
+            onChange={(e) => setPhonenumber(e.target.value)}
+
+            
+            className="form-input"
+            required
+          />
+        </div>
+        <div className="form-group">
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            style={{
-              width: "100%",
-              padding: "10px",
-              border: "1px solid #ddd",
-              borderRadius: "5px",
-              fontSize: "14px",
-              boxSizing: "border-box",
-            }}
+            className="form-input"
             required
           />
         </div>
-        <button
-          type="submit"
-          style={{
-            width: "100%",
-            padding: "10px",
-            backgroundColor: "#007BFF",
-            color: "#fff",
-            border: "none",
-            borderRadius: "5px",
-            fontSize: "16px",
-            cursor: "pointer",
-          }}
-        >
+        <button type="submit" className="submit-button">
           Signup
         </button>
       </form>

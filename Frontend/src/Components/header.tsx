@@ -12,7 +12,7 @@ const Header = () => {
         <Search width={16} height={16} className="icon search" />
         <input placeholder="type here..." />
       </div>
-      <div>
+      <div className="nav-all">
         <Bell className="icon-bell" />
         <UserRound className="icon-profile" />
 
