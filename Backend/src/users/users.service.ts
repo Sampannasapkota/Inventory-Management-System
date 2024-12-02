@@ -18,18 +18,30 @@ export class UsersService {
     await roleService.findOne(createUserDto.role_id);
     await organizationService.findOne(createUserDto.organization_id);
 
-    createUserDto.name= capitalizeFirstLetterOfEachWordInAPhrase(createUserDto.name)
+    const roleObj= await this.prismaService.role.findFirst({
+      where: {name: createUserDto.role},
 
-    if(await this.checkIfEmailExist(createUserDto.email)){
+    });
+
+    if(!roleObj){
+      throw new NotFoundException(`Unable to find the role ${createUserDto.role}`,);
+    }
+    const {role, ...rest}= createUserDto;
+
+
+
+    rest.name= capitalizeFirstLetterOfEachWordInAPhrase(rest.name)
+
+    if(await this.checkIfEmailExist(rest.email)){
       throw new BadRequestException("Email already taken");
 
     }
-    if(await this.checkIfMobileExist(createUserDto.mobile)){
+    if(await this.checkIfMobileExist(rest.mobile)){
       throw new BadRequestException("Mobile already taken");
 
     }
-    createUserDto.password= await hash(createUserDto.password, 10);
-    return this.prismaService.user.create({data: createUserDto});
+    rest.password= await hash(rest.password, 10);
+    return this.prismaService.user.create({data: rest});
   }
 
 
@@ -42,12 +54,32 @@ export class UsersService {
   }
 
  async update(id: number, updateUserDto: UpdateUserDto) {
+  
     updateUserDto.name= capitalizeFirstLetterOfEachWordInAPhrase(updateUserDto.name);
+    if(updateUserDto.name){
+      updateUserDto.name= capitalizeFirstLetterOfEachWordInAPhrase(updateUserDto.name);
+    }
 
         if(!await this.checkIfUserExist(updateUserDto.name, id)){
           throw new BadRequestException("This user already exists");
         }
-        return this.prismaService.user.update({where: {id}, data:updateUserDto,})
+       
+        const {role, ...rest}= updateUserDto;
+
+        if(!(await this.checkIfEmailExist(updateUserDto.email, id)))
+          {
+          throw new BadRequestException(`User ${updateUserDto.email} has already been taken`);
+        }
+
+        if(!(await this.checkIfMobileExist(updateUserDto.mobile, id)))
+          {
+          throw new BadRequestException(`User ${updateUserDto.mobile} has already been taken`);
+        }
+    
+    
+    
+        rest.name= capitalizeFirstLetterOfEachWordInAPhrase(updateUserDto.name)
+        return this.prismaService.user.update({where: {id}, data: rest,})
   }
 
   async remove(id: number) {
