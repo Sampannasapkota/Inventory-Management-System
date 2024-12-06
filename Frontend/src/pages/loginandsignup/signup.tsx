@@ -3,7 +3,6 @@ import { useNavigate } from "react-router";
 import "./signup.css"; // Import the CSS file
 import { api } from "../../api";
 import CustomInput from "../../Components/customInput";
-// import { useLocation } from "react-router";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -11,20 +10,20 @@ const Signup = () => {
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  // const {state} = useLocation();
-  // const organizationId = state.organizationId;
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(name, email, mobile, password);
-
+    const organization_id = localStorage.getItem("organization_id");
     try {
-      const response = await api.post("/register", {
+      const response = await api.post("/auth/register", {
         name,
         email,
         mobile,
+       organization_id: organization_id && parseInt(organization_id, 10),
         password,
+        role: "Admin"
       });
       console.log(response);
       navigate("/");

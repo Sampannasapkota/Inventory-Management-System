@@ -30,6 +30,8 @@ const NewOrganization = () => {
             });
             console.log(response);
             navigate("/signup");
+            // TODO: save organization_id to localstorage
+            localStorage.setItem("organization_id", JSON.stringify(response.data.id))
         }
         catch (error: any) {
             console.log(error);
