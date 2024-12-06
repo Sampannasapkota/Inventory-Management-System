@@ -6,6 +6,8 @@ import Products from '././pages/products';
 import AddProduct from './pages/products/addProduct';
 import Login from './pages/loginandsignup/login';
 import Signup from './pages/loginandsignup/signup';
+
+import NewOrganization from './pages/loginandsignup/newOrganization';
 // import Sales from './pages/sales';
 // import AddSales from '././pages/sales/addSales';
 
@@ -26,6 +28,7 @@ function AppRoutes() {
       <Route path="/products/add" element={<AddProduct />} />
       <Route path='/login' element={<Login/>}/>
       <Route path='/signup' element={<Signup/>}/>
+      <Route path='/organization' element={<NewOrganization/>}/>
       {/* <Route path="/" element={<Sales />} />
       <Route path="/sales" element={<Sales />} />
       <Route path="/sales/add" element={<AddSales />} /> */}

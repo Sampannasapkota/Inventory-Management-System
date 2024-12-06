@@ -26,9 +26,10 @@ export class UsersService {
     if(!roleObj){
       throw new NotFoundException(`Unable to find the role ${createUserDto.role}`,);
     }
+
+    createUserDto.role_id = roleObj.id;
+
     const {role, ...rest}= createUserDto;
-
-
 
     rest.name= capitalizeFirstLetterOfEachWordInAPhrase(rest.name)
 

@@ -40,7 +40,6 @@ model User{
   @@map("users")
   id Int @id @default(autoincrement())
   role_id Int
- 
   organization_id Int
   name String
   email String @unique
@@ -51,7 +50,6 @@ model User{
 
   role Role @relation(fields: [role_id], references:[id])
   organization Organization @relation(fields: [organization_id], references:[id])
-
 }
 
 enum OrganizationType {

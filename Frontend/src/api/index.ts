@@ -1,13 +1,15 @@
 import axios from "axios";
 
 const api =axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'http://localhost:8000'
 
 });
 
-api.interceptors.request.use((config))=>{
-    const token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZV9pZCI6MSwib3JnYW5pemF0aW9uX2lkIjoyLCJuYW1lIjoiU2F0eWFtIiwiZW1haWwiOiJoZW9AZ21haWwuY29tIiwibW9iaWxlIjoiOTAwMDAiLCJwYXNzd29yZCI6IiQyYiQxMCRJdXpqTFVQaW1TYThmRjFaT3FqSGhlU0Y2a0RqL25oOEVKNUhIU0JudGtzbGxORWk5RG9TLiIsImNyZWF0ZWRfYXQiOiIyMDI0LTA5LTA5VDA5OjUwOjAxLjUxNVoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wOS0wOVQwOTo1MDowMS41MTVaIiwicm9sZSI6eyJpZCI6MSwibmFtZSI6IkR1bW15IFJvbGUifSwib3JnYW5pemF0aW9uIjp7ImlkIjoyLCJuYW1lIjoiUHVueWFtIiwiYWRkcmVzcyI6Ikl0YWhhcmkiLCJ0eXBlIjoicmV0YWlsIiwicGhvbmUiOiI5ODAwMDAwMCIsImNyZWF0ZWRfYXQiOiIyMDI0LTA5LTA4VDA5OjU4OjE4LjYwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wOS0wOFQwOTo1ODoxOC42MDBaIn0sImlhdCI6MTczMjY5NDcyMiwiZXhwIjoxNzMzOTkwNzIyfQ.40iXF68ZR_HvXboGJses7jEn_yhCekg4pJapnMogvsc";
-   Config.headers.Authorization= `Bearer ${token}` ;
+api.interceptors.request.use((config)=>{
+    const token = localStorage.getItem('token');
+   config.headers.Authorization= `Bearer ${token}` ;
    config.headers['Content-Type']= 'application/json';
+   return config;
 
-}
+});
+export {api};

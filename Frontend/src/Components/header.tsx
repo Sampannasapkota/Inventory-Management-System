@@ -22,7 +22,7 @@ const Header = () => {
           }}>Login</button>
       <button style={{ marginLeft: 16, padding: "4px 16px", width: "30%" }}
           onClick={() => {
-            navigate("/signup");
+            navigate("/organization");
           }}>Signup</button>
       </div>
 
