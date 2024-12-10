@@ -1,40 +1,43 @@
-import './App.css'
-import './Components/table.css'
-import Header from './Components/header';
-import { Route, Routes } from 'react-router';
-import Products from '././pages/products';
-import AddProduct from './pages/products/addProduct';
-import Login from './pages/loginandsignup/login';
-import Signup from './pages/loginandsignup/signup';
+import "./App.css";
+import "./Components/table.css";
+// import Header from './Components/header';
+import { Navigate, Route, Routes } from "react-router";
+import Products from "././pages/products";
+import AddProduct from "./pages/products/addProduct";
+import Login from "./pages/loginandsignup/login";
+import Signup from "./pages/loginandsignup/signup";
+import AppLayout from "./Components/appLayout";
 
-import NewOrganization from './pages/loginandsignup/newOrganization';
+import NewOrganization from "./pages/loginandsignup/newOrganization";
+import { useContext } from "react";
+import { AuthContext } from "./context/authContext";
 // import Sales from './pages/sales';
 // import AddSales from '././pages/sales/addSales';
+const ProtectedRoutes = () => {
+  const { isAuthenticated } = useContext(AuthContext);
+  console.log({ isAuthenticated })
+  return isAuthenticated ? <AppLayout /> : <Navigate to="/login" />;
+};
 
 function App() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
-      <Header />
-      <AppRoutes />
-    </div>
-  );
-}
-
-function AppRoutes() {
-  return (
     <Routes>
-      <Route path="/" element={<Products />} />
-      <Route path="/products" element={<Products />} />
-      <Route path="/products/add" element={<AddProduct />} />
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/signup' element={<Signup/>}/>
-      <Route path='/organization' element={<NewOrganization/>}/>
-      {/* <Route path="/" element={<Sales />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<ProtectedRoutes />}>
+        <Route path="/" element={<Products />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/add" element={<AddProduct />} />
+
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/organization" element={<p>Page not found!!!</p>} />
+        <Route path="*" element={<NewOrganization />} />
+        {/* <Route path="/" element={<Sales />} />
       <Route path="/sales" element={<Sales />} />
       <Route path="/sales/add" element={<AddSales />} /> */}
-      {/* Add Sales Routes */}
+        {/* Add Sales Routes */}
+      </Route>
     </Routes>
-  )
+  );
 }
 
 export default App;

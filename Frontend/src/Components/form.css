@@ -39,29 +39,29 @@
 .button-submit:active {
   background-color: #3e8e41;
 } */
-/* Form container styling */
+
 .form.container {
-  max-width: 400px; /* Limit form width */
-  margin: 20px auto; /* Center the form horizontally */
+  width: auto; 
+  margin: 20px auto; 
   padding: 20px;
-  background-color: #f8f9fa; /* Light background for contrast */
-  border: 1px solid #ddd; /* Subtle border */
-  border-radius: 8px; /* Smooth rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for a clean look */
+  background-color: #f8f9fa; 
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
-/* Form structure */
+
 form {
   display: flex;
-  flex-direction: column; /* Stack form elements vertically */
-  gap: 16px; /* Space between input fields */
+  flex-direction: column; 
+  gap: 16px; 
 }
 
-/* Label and input styles */
+
 label {
   font-size: 14px;
   font-weight: bold;
-  color: #333; /* Darker color for label text */
+  color: #333; 
 }
 
 input {

@@ -3,7 +3,7 @@
   justify-content: space-between; /* Space between search and navigation */
   align-items: center;
   height: 60px;
-  width: 95%;
+  width: 100%;
   background-color: white;
   padding: 0 16px; /* Add padding for consistent spacing */
   border-bottom: 1px solid #ddd; /* Subtle border for better separation */

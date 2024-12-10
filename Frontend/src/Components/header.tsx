@@ -16,11 +16,11 @@ const Header = () => {
         <Bell className="icon-bell" />
         <UserRound className="icon-profile" />
 
-        <button style={{ marginLeft: 16, padding: "4px 16px", width: "30%" }}
+        <button style={{ marginLeft: 16, padding: "4px 16px", width: "30%",height:"30px",backgroundColor:"black" }}
           onClick={() => {
             navigate("/login");
           }}>Login</button>
-      <button style={{ marginLeft: 16, padding: "4px 16px", width: "30%" }}
+      <button style={{ marginLeft: 16, padding: "4px 16px", width: "30%",height:"30px",backgroundColor:"black" }}
           onClick={() => {
             navigate("/organization");
           }}>Signup</button>

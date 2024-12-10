@@ -21,15 +21,14 @@ const Signup = () => {
         name,
         email,
         mobile,
-       organization_id: organization_id && parseInt(organization_id, 10),
+        organization_id: organization_id && parseInt(organization_id, 10),
         password,
-        role: "Admin"
+        role: "Admin",
       });
       console.log(response);
       navigate("/");
       localStorage.setItem("token", response.data.token);
-    }
-    catch (error: any) {
+    } catch (error: any) {
       console.log(error);
       setError(error.response.data.message);
     }
@@ -46,6 +45,8 @@ const Signup = () => {
         Back
       </button>
       <form onSubmit={handleSubmit} className="signup-form">
+      <h5>Step 2</h5>
+      
         <h2 className="form-title">Signup</h2>
         <div className="form-group">
           {/* <input
@@ -56,25 +57,19 @@ const Signup = () => {
             className="form-input"
             required
           /> */}
-          <CustomInput label="name" setValue={setName}/>
-          <CustomInput label="email" setValue={setEmail}/>
-          <CustomInput label="mobile" setValue={setMobile}/>
-          <CustomInput label="password" setValue={setPassword}/>
-          
+          <CustomInput label="Name" placeholder="Enter your Fullname" setValue={setName} />
+          <CustomInput label="Email" placeholder="Enter your Email" setValue={setEmail} />
+          <CustomInput label="Mobile" placeholder="Enter your mobile number" setValue={setMobile} />
+          <CustomInput label="Password" placeholder="Strong password" setValue={setPassword} />
         </div>
-       
+        {error && <p className="error">{error}</p>}
+
         <button type="submit" className="submit-button">
           Signup
         </button>
-        
       </form>
-      {error && <p className="error">{error}</p>}
-      
     </div>
-    
-    
   );
- 
 };
 
 export default Signup;

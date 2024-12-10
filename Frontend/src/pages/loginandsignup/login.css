@@ -34,7 +34,7 @@
 button {
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #000000;
   color: white;
   border: none;
   border-radius: 4px;
@@ -57,4 +57,8 @@ button.back-button{
   width: 120px;
   color: white;
   font-size: 16px;
+}
+
+.back-button{
+  margin-bottom: 10px;
 }
