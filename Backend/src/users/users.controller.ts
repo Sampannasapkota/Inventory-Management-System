@@ -6,7 +6,7 @@ import { AdminGuard } from 'src/guards/admin/admin.guard';
 import { Public } from '@prisma/client/runtime/library';
 
 @Controller('users')
-@UseGuards(AdminGuard)
+// @UseGuards(AdminGuard)
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 

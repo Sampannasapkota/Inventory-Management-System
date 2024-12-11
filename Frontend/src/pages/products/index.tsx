@@ -99,6 +99,7 @@ const Products = () => {
               <td>{item.quantity}</td>
               <td>{item.price}</td>
               <td>{item.discount}</td>
+           
             </tr>
           ))}
         </tbody>

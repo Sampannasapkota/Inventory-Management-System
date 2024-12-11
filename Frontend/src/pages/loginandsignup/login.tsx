@@ -4,10 +4,12 @@ import "./login.css"; // Import the CSS file
 import CustomInput from "../../Components/customInput";
 import { api } from "../../api";
 import { AuthContext } from "../../context/authContext";
+import { useUser } from "../../context/userContext";
 
 export default function Login() {
   const navigate = useNavigate();
   const {login} =useContext(AuthContext);
+  
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -22,8 +24,9 @@ export default function Login() {
       console.log(response);
       navigate("/");
       login(response.data.token);
-    } catch (error: any) {
-      console.log(error);
+    }
+     catch (error: any) {
+      console.error(error);
       setError(error.response.data.message);
     }
   };

@@ -1,18 +1,24 @@
 import { createContext, useState } from "react";
 
-// interface AuthContextType{
-//     token?: string | null;
-//     isAuthenticated: boolean;
-//     login :()=>void;
-//     logout: ()=>void;
-// }
+interface AuthContextType{
+    token?: string | null;
+    isAuthenticated: boolean;
+    login :(token: string)=>void;
+    logout?: ()=>void;
+  
+}
 
-const AuthContext = createContext<any>({
+const AuthContext = createContext<AuthContextType>({
   token: null,
   isAuthenticated: false,
   login: () => {},
   logout: () => {},
+  
 });
+
+
+
+
 const AuthProvider = ({ children }: any) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const token = localStorage.getItem("token");
@@ -23,10 +29,10 @@ const AuthProvider = ({ children }: any) => {
       setIsAuthenticated(true);
     }
   };
-  const logout = (token: string) => {
-    if (token) {
+  const logout = () => {
+    localStorage.removeItem("token");
       setIsAuthenticated(false);
-    }
+    
   };
   return (
     <AuthContext.Provider value={{ token, isAuthenticated, login, logout }}>
@@ -37,6 +43,13 @@ const AuthProvider = ({ children }: any) => {
 
 export { AuthProvider, AuthContext };
 
-//Steps to create contextx//
 
-//create a context variable using create
+
+
+/** Steps to create ContextAPI **/
+// create a context variable using createContext() function
+// create a provider component that will wrap the entire application
+// set value prop of the provider component
+// export the context variable and the provider component
+// wrap the application with the provider component
+// use useContext() hook to access the context value in any component

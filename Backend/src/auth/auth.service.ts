@@ -52,6 +52,13 @@ export class AuthService {
     const token= await this.jwtService.signAsync(user);
     return{
       token,
-    }
+    };
+  }
+  async getUserProfile(userId: number) {
+    const user = await this.prismaService.user.findFirst({where:{id: userId}});
+    if(!user) throw new NotFoundException();
+    return user;
+    
   }
 }
+

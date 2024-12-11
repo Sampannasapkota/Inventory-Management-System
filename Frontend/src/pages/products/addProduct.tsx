@@ -19,6 +19,7 @@ const AddProducts = () => {
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
   const [discount, setDiscount] = useState("");
+ 
   const [discountType, setDiscountType] = useState<ENUM_DISCOUNT>(
     ENUM_DISCOUNT.AMOUNT
   );
@@ -44,6 +45,7 @@ const AddProducts = () => {
           quantity: parseInt(quantity),
           price: parseFloat(price),
           discount: parseFloat(discount),
+       
           discountType: parseFloat(discountType),
         },
         // body: JSON.stringify({
@@ -101,6 +103,7 @@ const AddProducts = () => {
           <CustomInput label="Quantity" setValue={setQuantity} />
           <CustomInput label="Price" setValue={setPrice} />
           <CustomInput label="Discount" setValue={setDiscount} />
+       
 
           <div>
             <p>Discount Type:</p>

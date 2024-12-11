@@ -11,11 +11,10 @@ import AppLayout from "./Components/appLayout";
 import NewOrganization from "./pages/loginandsignup/newOrganization";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext";
-// import Sales from './pages/sales';
-// import AddSales from '././pages/sales/addSales';
+
 const ProtectedRoutes = () => {
   const { isAuthenticated } = useContext(AuthContext);
-  console.log({ isAuthenticated })
+  console.log({ isAuthenticated });
   return isAuthenticated ? <AppLayout /> : <Navigate to="/login" />;
 };
 
@@ -31,10 +30,6 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/organization" element={<p>Page not found!!!</p>} />
         <Route path="*" element={<NewOrganization />} />
-        {/* <Route path="/" element={<Sales />} />
-      <Route path="/sales" element={<Sales />} />
-      <Route path="/sales/add" element={<AddSales />} /> */}
-        {/* Add Sales Routes */}
       </Route>
     </Routes>
   );
