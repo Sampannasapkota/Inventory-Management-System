@@ -1,5 +1,5 @@
 .products-container {
-    width: 50%;
+    /* width: 50%; */
     margin: auto;
   }
   
@@ -20,10 +20,11 @@
   }
   
   .add-button {
-    margin-left: 16px;
+    margin-left: 55%;
     padding: 4px 16px;
-    width: 30%;
-    background-color: #007bff;
+    width: 17%;
+    height: 40px;
+    background-color: #000000;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -31,7 +32,7 @@
   }
   
   .add-button:hover {
-    background-color: #0056b3;
+    background-color: #000000;
   }
   
   .products-table {
@@ -49,6 +50,7 @@
   
   .products-table th {
     background-color: #f4f4f4;
+    color: #000000;
   }
   
   .no-products-message {

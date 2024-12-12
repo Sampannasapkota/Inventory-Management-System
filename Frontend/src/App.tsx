@@ -7,15 +7,14 @@ import AddProduct from "./pages/products/addProduct";
 import Login from "./pages/loginandsignup/login";
 import Signup from "./pages/loginandsignup/signup";
 import AppLayout from "./Components/appLayout";
-
 import NewOrganization from "./pages/loginandsignup/newOrganization";
-import { useContext } from "react";
-import { AuthContext } from "./context/authContext";
+import { useAuth } from "./context/authContext";
+
 
 const ProtectedRoutes = () => {
-  const { isAuthenticated } = useContext(AuthContext);
-  console.log({ isAuthenticated });
-  return isAuthenticated ? <AppLayout /> : <Navigate to="/login" />;
+  const { token } = useAuth();
+  console.log({ token });
+  return token ? <AppLayout /> : <Navigate to="/login" />;
 };
 
 function App() {
@@ -28,8 +27,8 @@ function App() {
         <Route path="/products/add" element={<AddProduct />} />
 
         <Route path="/signup" element={<Signup />} />
-        <Route path="/organization" element={<p>Page not found!!!</p>} />
-        <Route path="*" element={<NewOrganization />} />
+        <Route path="/organization" element={<NewOrganization />} />
+        <Route path="*" element={<p>Page not found!!!</p>} />
       </Route>
     </Routes>
   );

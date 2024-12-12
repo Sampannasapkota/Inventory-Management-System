@@ -6,8 +6,7 @@ import "./productList.css";
 import axios from "axios";
 
 const AUTH_TOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZV9pZCI6MSwib3JnYW5pemF0aW9uX2lkIjoyLCJuYW1lIjoiU2F0eWFtIiwiZW1haWwiOiJoZW9AZ21haWwuY29tIiwibW9iaWxlIjoiOTAwMDAiLCJwYXNzd29yZCI6IiQyYiQxMCRJdXpqTFVQaW1TYThmRjFaT3FqSGhlU0Y2a0RqL25oOEVKNUhIU0JudGtzbGxORWk5RG9TLiIsImNyZWF0ZWRfYXQiOiIyMDI0LTA5LTA5VDA5OjUwOjAxLjUxNVoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wOS0wOVQwOTo1MDowMS41MTVaIiwicm9sZSI6eyJpZCI6MSwibmFtZSI6IkR1bW15IFJvbGUifSwib3JnYW5pemF0aW9uIjp7ImlkIjoyLCJuYW1lIjoiUHVueWFtIiwiYWRkcmVzcyI6Ikl0YWhhcmkiLCJ0eXBlIjoicmV0YWlsIiwicGhvbmUiOiI5ODAwMDAwMCIsImNyZWF0ZWRfYXQiOiIyMDI0LTA5LTA4VDA5OjU4OjE4LjYwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyNC0wOS0wOFQwOTo1ODoxOC42MDBaIn0sImlhdCI6MTczMjY5NDcyMiwiZXhwIjoxNzMzOTkwNzIyfQ.40iXF68ZR_HvXboGJses7jEn_yhCekg4pJapnMogvsc";
-
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZV9pZCI6MSwib3JnYW5pemF0aW9uX2lkIjoyLCJuYW1lIjoiQmlrcmFtIiwiZW1haWwiOiJoZW9AZ21haWwuY29tIiwibW9iaWxlIjoiOTAwMDAiLCJwYXNzd29yZCI6Imhlcm8xMjMiLCJjcmVhdGVkX2F0IjoiMjAyNC0wOS0wOVQwOTo1MDowMS41MTVaIiwidXBkYXRlZF9hdCI6IjIwMjQtMTItMTBUMTU6NTk6NDAuNjI3WiIsInJvbGUiOnsiaWQiOjEsIm5hbWUiOiJLdW1teSBSb2xlIn0sIm9yZ2FuaXphdGlvbiI6eyJpZCI6MiwibmFtZSI6IlB1bnlhbSIsImFkZHJlc3MiOiJJdGFoYXJpIiwidHlwZSI6InJldGFpbCIsInBob25lIjoiOTgwMDAwMDAiLCJjcmVhdGVkX2F0IjoiMjAyNC0wOS0wOFQwOTo1ODoxOC42MDBaIiwidXBkYXRlZF9hdCI6IjIwMjQtMDktMDhUMDk6NTg6MTguNjAwWiJ9LCJpYXQiOjE3MzM4NDY1MTgsImV4cCI6MTczNTE0MjUxOH0.6PDymf9OfW6dwFeMLTq8vkCpz8IY0Efp0RkB5GlzlPA";
 interface Item {
   id: number;
   name: string;
@@ -16,6 +15,7 @@ interface Item {
   price: number;
   discount: number;
   discountType: string;
+
 }
 interface ItemResponse {
   item: Item;
@@ -99,6 +99,7 @@ const Products = () => {
               <td>{item.quantity}</td>
               <td>{item.price}</td>
               <td>{item.discount}</td>
+             
            
             </tr>
           ))}

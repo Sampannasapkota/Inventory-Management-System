@@ -1,7 +1,7 @@
-import { Building, LogOut, Outdent, PackageOpen, ReceiptText, Settings, User2 } from "lucide-react";
+import { Building, LogOut,  PackageOpen,  Settings, User2 } from "lucide-react";
 import { NavLink } from "react-router";
 import './sidebar.css'
-import { GiExitDoor } from "react-icons/gi";
+
 
 export default function Sidebar() {
   return (

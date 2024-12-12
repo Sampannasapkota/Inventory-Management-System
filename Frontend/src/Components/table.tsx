@@ -30,7 +30,7 @@ const Table = () => {
   // filterByName("marker");
 
   return (
-    <div style={{ width: "50%", margin: "auto" }}>
+    <div style={{ width: "80%", margin: "auto" }}>
       <h1>Products</h1>
       <div className="search-container">
       
@@ -61,6 +61,7 @@ const Table = () => {
               <td>{item.quantity}</td>
               <td>{item.price}</td>
               <td>{item.discount}</td>
+              
             </tr>
           ))}
         </tbody>

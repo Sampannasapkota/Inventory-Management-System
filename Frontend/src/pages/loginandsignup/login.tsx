@@ -1,14 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, {  useState } from "react";
 import { useNavigate } from "react-router";
 import "./login.css"; // Import the CSS file
 import CustomInput from "../../Components/customInput";
 import { api } from "../../api";
-import { AuthContext } from "../../context/authContext";
-import { useUser } from "../../context/userContext";
+import { useAuth } from "../../context/authContext";
+// import { useUser } from "../../context/userContext";
 
 export default function Login() {
   const navigate = useNavigate();
-  const {login} =useContext(AuthContext);
+  const {login} =useAuth();
   
 
   const [username, setUsername] = useState("");
@@ -33,12 +33,6 @@ export default function Login() {
 
   return (
     <div className="form-container">
-      <button
-        className="back-button"
-        onClick={() => {
-          navigate("/products");
-        }}
-      >Back</button>
      
       <form className="login-form" onSubmit={handleSubmit}>
       <h1 className="header">Login</h1>

@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext,useContext, useState } from "react";
 
 interface AuthContextType{
     token?: string | null;
@@ -40,8 +40,9 @@ const AuthProvider = ({ children }: any) => {
     </AuthContext.Provider>
   );
 };
+const useAuth=()=> useContext(AuthContext);
 
-export { AuthProvider, AuthContext };
+export { AuthProvider, useAuth };
 
 
 
