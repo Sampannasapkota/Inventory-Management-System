@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import "./login.css"; // Import the CSS file
 import CustomInput from "../../Components/customInput";
@@ -8,8 +8,7 @@ import { useAuth } from "../../context/authContext";
 
 export default function Login() {
   const navigate = useNavigate();
-  const {login} =useAuth();
-  
+  const { login } = useAuth();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -24,8 +23,7 @@ export default function Login() {
       console.log(response);
       navigate("/");
       login(response.data.token);
-    }
-     catch (error: any) {
+    } catch (error: any) {
       console.error(error);
       setError(error.response.data.message);
     }
@@ -33,14 +31,28 @@ export default function Login() {
 
   return (
     <div className="form-container">
-     
       <form className="login-form" onSubmit={handleSubmit}>
-      <h1 className="header">Login</h1>
-        <CustomInput label="Username" placeholder="Enter your Name" setValue={setUsername} />
-        <CustomInput label="Password" placeholder="Enter your strong password" setValue={setPassword} />
+        <h1 className="header">Login</h1>
+        <CustomInput
+          label="Username"
+          placeholder="Enter your Name"
+          setValue={setUsername}
+        />
+        <CustomInput
+          label="Password"
+          placeholder="Enter your strong password"
+          setValue={setPassword}
+        />
 
         {error && <p className="error">{error}</p>}
         <button type="submit"> login</button>
+        <button
+          onClick={() => {
+            navigate("/signup");
+          }}
+        >
+          Signup
+        </button>
       </form>
     </div>
   );
