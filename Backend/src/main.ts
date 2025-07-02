@@ -10,6 +10,8 @@ async function bootstrap() {
 
   //all middlewares are registered here
   app.useGlobalPipes(new ValidationPipe());
+
+  //jwt paxadi yo halne
   app.useGlobalGuards(new AuthGuard(new JwtService(), new Reflector()));
 
   //application start

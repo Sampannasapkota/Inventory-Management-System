@@ -1,15 +1,14 @@
-interface TextProps{
-    content: string;
-    color: string;
-    size: string;
+// interface TextProps{
+//     content: string;
+//     color: string;
+//     size: string;
 
-}
+// }
 
+// const simpleText = ({content,color="gray", size="16px"}: TextProps) => {
+//    return(
+//     <p style={{}  } >{content}</p>
+//    );
 
-const simpleText = ({content,color="gray", size="16px"}: TextProps) => {
-   return(
-    <p style={{}  } >{content}</p>
-   );
-
-}
-export default simpleText;
+// }
+// export default simpleText;

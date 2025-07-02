@@ -1,59 +1,52 @@
-import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
+import { createContext, useState, ReactNode, useEffect } from "react";
 import { api } from "../api";
 
 interface User {
- id: number;
+  id: number;
   name: string;
-
 }
 
-interface UserContextType{
-  user: User|null;
-  fetchUser: (id: number)=>void;
-  clearUser:()=> void;
- 
+interface UserContextType {
+  user: User | null;
+  fetchUser: (id: number) => void;
+  clearUser: () => void;
 }
 
 const UserContext = createContext<UserContextType>({
   user: null,
-  fetchUser:()=> {},
-  clearUser:()=>{},
+  fetchUser: () => {},
+  clearUser: () => {},
 });
 
-interface UserProviderProps{
+interface UserProviderProps {
   children: ReactNode;
 }
 
-
-
-const UserProvider=  ({ children }: UserProviderProps
-) => {
+const UserProvider = ({ children }: UserProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
-  const fetchUser = async ()=>{
-    try{
-      const response= await api.get(`/auth/profile`);
-      const userData : User = response.data;
+  const fetchUser = async () => {
+    try {
+      const response = await api.get(`/auth/profile`);
+      const userData: User = response.data;
       setUser(userData);
-    }
-    catch(error){
+    } catch (error) {
       console.error("Error fetching user:", error);
     }
   };
 
-  const clearUser=()=>{
+  const clearUser = () => {
     setUser(null);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchUser();
-  },[])
+  }, []);
 
-  return(
-    <UserContext.Provider value={{user,fetchUser,clearUser}}>
+  return (
+    <UserContext.Provider value={{ user, fetchUser, clearUser }}>
       {children}
     </UserContext.Provider>
   );
 };
 
-export {UserProvider, UserContext};
-
+export { UserProvider, UserContext };

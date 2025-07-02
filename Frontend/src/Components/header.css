@@ -1,56 +1,91 @@
+/* header.css */
+
+/* Container styling for the header */
 .header-container {
   display: flex;
-  justify-content: space-between; /* Space between search and navigation */
+  justify-content: space-between;
   align-items: center;
-  height: 60px;
-  width: 95%;
-  background-color: white;
-  padding: 0 16px; /* Add padding for consistent spacing */
-  border-bottom: 1px solid #ddd; /* Subtle border for better separation */
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-.search-container {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* Space between search icon and input */
-  flex: 1; /* Allow search to take remaining space */
-  
+/* Greeting text */
+.header-container h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
 }
 
-.search-container input {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 8px;
-  width: 200px;
-  font-size: 14px;
-}
-
+/* Navigation container */
 .nav-all {
   display: flex;
   align-items: center;
-  gap: 16px; /* Space between navigation items */
+  gap: 20px;
 }
 
-.icon-profile,
+/* Bell icon styling */
 .icon-bell {
-  height: 20px;
-  width: 20px;
+  height: 24px;
+  width: 24px;
+  color: #333;
   cursor: pointer;
-  color: #333; /* Neutral color for icons */
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-button {
-  padding: 8px 16px;
-  border: none;
+.icon-bell:hover {
+  transform: scale(1.1);
+  color: #007bff;
+}
+
+/* User icon button styling */
+.IconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.IconButton:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f1f1f1;
+}
+
+/* Dropdown menu content */
+.DropdownMenuContent {
+  min-width: 160px;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
   border-radius: 4px;
-  background-color: #007bff; /* Blue color for buttons */
-  color: white;
-  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown menu items */
+.DropdownMenuItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 4px;
   font-size: 14px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
-button:hover {
-  background-color: #0056b3; /* Darker shade on hover */
+.DropdownMenuItem:hover {
+  background-color: #555;
 }
 
+/* Adjusting the Settings and LogOut icon size */
+.DropdownMenuItem svg {
+  height: 18px;
+  width: 18px;
+  color: #fff;
+}
